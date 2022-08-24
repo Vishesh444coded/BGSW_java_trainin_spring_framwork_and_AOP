@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop = "http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy/>
+
+    <bean id="logging" class="aop.Logging"/>
+
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+<!--        https://www.springframework.org/schema/beans/spring-beans.xsd">-->
+<!--property means setter in java class-->
+    <bean id="cust1" class="model.Customer">
+        <property name="custId" value="1002"/>
+        <property name="customer" value="Savitha"/>
+        <property name="balance" value="20000"/>
+<!--        <property name="address" ref="add"/>-->
+    </bean>
+<!--   contructor-arg is using constructor -->
+    <bean id="cust2" class="model.Customer">
+        <constructor-arg index="0" value="1111"/>
+        <constructor-arg index="1" value="Rita"/>
+        <constructor-arg index="2" value="2000"/>
+    </bean>
+
+    <bean id="add" class="model.Address">
+        <constructor-arg index="0" value="Sagar123"/>
+        <constructor-arg index="1" value="1234567890"/>
+    </bean>
+
+</beans>
